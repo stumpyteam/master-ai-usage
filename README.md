@@ -1,12 +1,74 @@
-# Master AI Usage
+<p align="center">
+  <img src="docs/icon-128.png" width="96" alt="Master AI Usage">
+</p>
 
-One Firefox and Chrome extension. One toolbar icon. One popup.
+<h1 align="center">Master AI Usage</h1>
 
-The tile follows the site in the active tab: grok.com, gemini.google.com, or chatgpt.com. Anywhere else it shows the highest live usage among signed-in services. Grok, Gemini, and ChatGPT ship first. Each one is an adapter that returns `{ percent, resetsAt, products, note }`. If a site does not expose a number, the popup says "Signed in, usage not exposed". It never invents a percent.
+<p align="center">
+  One toolbar percentage for Grok, Gemini, and ChatGPT.<br>
+  Reads each site's own usage and never invents a number.
+</p>
 
-Usage percents stay free. Token balances are a one-time $4.99 unlock, the same Stripe payment and the same unlock code as Grok Usage. A code from either extension works in both.
+<p align="center">
+  <img src="docs/icon-128.png" width="48" alt="Store icon">
+  <img src="docs/toolbar-icon.png" width="48" alt="Toolbar icon">
+</p>
 
-## Packages
+---
+
+## Screenshots
+
+### The toolbar follows the site
+
+On grok.com, Gemini, or ChatGPT it shows that service. Anywhere else, the highest live percentage.
+
+<p align="center">
+  <img src="docs/screenshots/01-toolbar.png" width="640" alt="Toolbar follows the site">
+</p>
+
+### Usage percentages stay free
+
+Headline percentage, reset time, and the Grok breakdown. No account required.
+
+<p align="center">
+  <img src="docs/screenshots/02-free-popup.png" width="480" alt="Free popup">
+</p>
+
+### One unlock covers every tracker
+
+Gemini and ChatGPT window rows, the plan name, and token balances.
+
+<p align="center">
+  <img src="docs/screenshots/03-unlocked.png" width="480" alt="Unlocked view">
+</p>
+
+### One-time unlock
+
+Buy with Apple Pay, Google Pay, or card, or paste a code. A Grok Usage code works here. $4.99, once.
+
+<p align="center">
+  <img src="docs/screenshots/04-unlock.png" width="480" alt="Unlock">
+</p>
+
+### Token balances stay on this device
+
+Optional. Paste a Team ID and management key. They stay on this device and are not sent anywhere.
+
+<p align="center">
+  <img src="docs/screenshots/05-tokens.png" width="480" alt="Tokens">
+</p>
+
+---
+
+## What it does
+
+The tile follows the site in the active tab: grok.com, gemini.google.com, or chatgpt.com. Anywhere else it shows the highest live usage among signed-in services.
+
+Each service is an adapter that returns `{ percent, resetsAt, products, note }`. If a site does not expose a number, the popup says "Signed in, usage not exposed". It never invents a percent.
+
+Usage percentages stay free. Token balances and the extra window rows are a one-time $4.99 unlock, the same Stripe payment and the same unlock code as Grok Usage. A code from either extension works in both.
+
+## Install
 
 - Firefox: `master-ai-usage-1.0.30-firefox.xpi`
 - Chrome: `master-ai-usage-1.0.30-chrome.zip`
@@ -17,24 +79,6 @@ Firefox: Add-ons and themes → gear → Install Add-on From File → choose the
 
 Chrome: unzip, open `chrome://extensions`, turn on Developer mode, Load unpacked, choose the folder.
 
-## Reviewer notes
+## Privacy
 
-There is no build step. The xpi is the source. No minifier, no webpack, no bundler, no template engine.
-
-Bump `manifest.json` version on every upload.
-
-Category: Other.
-
-Listing tags: grok, gemini, chatgpt, usage tracker, rate limit, toolbar, weekly allowance.
-
-The store icon is the meter mark. The toolbar icon is the original block-digit tile: a filled usage color with hard 7-row digits, capped at 99, no percent sign.
-
-Data stays in the browser. The extension reads the signed-in session on each site and does not send it anywhere else. `data_collection_permissions.required` is `none`.
-
-## Adapters
-
-Grok: cookie session on grok.com, `POST /rest/grok/credits`, plus a MAIN-world hook for `GetGrokCreditsConfig`. A past weekly end clears the percent until a future end arrives. The reset label rolls forward by seven days and never stays on a past date. A 401 or 403 is signed out. A transient failure keeps the last percent.
-
-Gemini: signed-in Google cookies, then `CheckGeminiQuota` (`qpEbW`), the same call the Usage limits page uses. The popup shows the current window and the weekly percent when that reply includes them. If it does not, the row stays "Signed in, usage not exposed".
-
-ChatGPT: `/api/auth/session`, then `GET /backend-api/wham/usage`. The percent is the higher `used_percent` window that response includes. Missing windows stay blank.
+Data stays in the browser. The extension reads the signed-in session on each site and does not send it anywhere else.
