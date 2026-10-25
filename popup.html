@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI usage</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="row brand">
+      <h1>Usage <span class="ver">1.0.30</span></h1>
+    </header>
+    <div class="card" id="grok-card">
+      <div id="grok"></div>
+      <section class="tokens" id="tokens">
+      <header class="row">
+        <h2>Tokens</h2>
+        <p id="token-pct" class="pct">—</p>
+      </header>
+      <p id="token-note" class="muted" hidden></p>
+      <div class="track" id="token-track" aria-hidden="true"><div id="token-bar" class="bar"></div></div>
+      <div id="token-open" hidden>
+        <ul id="token-rows"></ul>
+        <form id="manual">
+          <div id="curl-box">
+            <div id="fields">
+              <label class="field">Team ID<input id="team" spellcheck="false" autocomplete="off" placeholder="Example: b123bbb6-b209-4ca5-8c7c-7dee53be547d" /></label>
+              <label class="field">Management key<input id="key" type="password" spellcheck="false" autocomplete="off" placeholder="Example: xai-token-example0000000000000000" /></label>
+            </div>
+            <div id="curl-alt" hidden>
+              <label class="field">Console curl<textarea id="curl" rows="4" spellcheck="false" placeholder="Paste the curl from the xAI console"></textarea></label>
+            </div>
+            <p id="curl-error" class="error" hidden></p>
+            <button type="submit">Save</button>
+            <div class="links">
+              <button id="use-curl" type="button">Use a curl instead</button>
+              <button id="use-fields" type="button" hidden>Use the two fields</button>
+              <button id="how" type="button">Where to find these</button>
+            </div>
+          </div>
+          <div id="curl-actions" class="actions" hidden>
+            <button id="replace" class="ghost" type="button">Replace</button>
+            <button id="forget" class="ghost" type="button">Remove</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    </div>
+    <div id="list"></div>
+    <button id="refresh" type="button">Refresh</button>
+    <div class="seg themes" id="theme" role="radiogroup" aria-label="Theme">
+      <button type="button" data-choice="auto" aria-pressed="true">Auto</button>
+      <button type="button" data-choice="light" aria-pressed="false">Light</button>
+      <button type="button" data-choice="dark" aria-pressed="false">Dark</button>
+      <button type="button" data-choice="dracula" aria-pressed="false">Dracula</button>
+    </div>
+    <div id="paywall">
+      <button id="buy" class="accent" type="button">Unlock all trackers</button>
+      <label class="combo">
+        <input id="license" spellcheck="false" autocomplete="off" placeholder="Paste unlock code" />
+        <button id="activate" type="button">Unlock</button>
+      </label>
+      <p id="pay-error" class="error" hidden></p>
+    </div>
+    <p class="fine" id="fine"></p>
+    <script src="theme.js"></script>
+    <script src="pay.js"></script>
+    <script src="period.js"></script>
+    <script src="icon.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
