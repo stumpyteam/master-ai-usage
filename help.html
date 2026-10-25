@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Find your credentials</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f6f6f8; --well: #fff; --line: #e4e4ea; --fg: #1c1c22; --muted: #3f3f4a; --purple: #7c5cdb;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme]) {
+          color-scheme: dark;
+          --bg: #18181b; --well: #27272a; --line: #3f3f46; --fg: #fafafa; --muted: #d4d4d8; --purple: #a78bfa;
+        }
+      }
+      [data-theme="light"] { color-scheme: light; --bg: #f6f6f8; --well: #fff; --line: #e4e4ea; --fg: #1c1c22; --muted: #3f3f4a; --purple: #7c5cdb; }
+      [data-theme="dark"] { color-scheme: dark; --bg: #18181b; --well: #27272a; --line: #3f3f46; --fg: #fafafa; --muted: #d4d4d8; --purple: #a78bfa; }
+      [data-theme="dracula"] { color-scheme: dark; --bg: #282a36; --well: #21222c; --line: #44475a; --fg: #f8f8f2; --muted: #d6daf0; --purple: #bd93f9; }
+      body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 ui-sans-serif, system-ui, sans-serif; }
+      main { max-width: 720px; margin: 0 auto; padding: 28px 20px 48px; }
+      h1 { font-size: 22px; font-weight: 500; margin: 0 0 8px; }
+      h2 { font-size: 16px; font-weight: 500; margin: 18px 0 0; }
+      p { color: var(--muted); margin: 8px 0; }
+      a { color: var(--purple); }
+      img { width: 100%; border: 1px solid var(--line); border-radius: 12px; background: var(--well); }
+    </style>
+    <script src="theme.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Find your credentials</h1>
+      <p>You need a Team ID and a management key from the xAI console. Do not use an API key.</p>
+      <h2>Open Settings</h2>
+      <img src="guide/gear.png" alt="Credits row with the settings gear outlined" />
+      <p>Sign in, then click the gear at the bottom left, next to Credits. <a href="https://console.x.ai" target="_blank" rel="noreferrer">console.x.ai</a></p>
+      <h2>Copy the Team ID</h2>
+      <p>In Settings, under Team, click General. Copy the Team ID on that page. It is the long value with dashes. <a href="https://console.x.ai/team/default/settings" target="_blank" rel="noreferrer">Open Settings</a></p>
+      <h2>Create a management key</h2>
+      <img src="guide/management-keys.png" alt="Management keys page with Create management key outlined" />
+      <p>Click Management keys, then Create management key. Set Billing to Read only. Leave Allowed IP Address empty. Copy the key while it is on screen. It is shown once. <a href="https://console.x.ai/team/default/management-keys" target="_blank" rel="noreferrer">Open Management keys</a></p>
+    </main>
+  </body>
+</html>
