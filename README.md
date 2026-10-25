@@ -10,6 +10,10 @@
 </p>
 
 <p align="center">
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/master-ai-usage/"><strong>Get it for Firefox</strong></a>
+</p>
+
+<p align="center">
   <img src="docs/icon-128.png" width="48" alt="Store icon">
   <img src="docs/toolbar-icon.png" width="48" alt="Toolbar icon">
 </p>
@@ -70,6 +74,7 @@ Usage percentages stay free. Token balances and the extra window rows are a one-
 
 ## Install
 
+- Firefox: install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/master-ai-usage/)
 - Firefox: `master-ai-usage-1.0.30-firefox.xpi`
 - Chrome: `master-ai-usage-1.0.30-chrome.zip`
 
