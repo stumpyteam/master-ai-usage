@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Master AI Usage",
+  "version": "1.0.30",
+  "description": "One toolbar percent for Grok, Gemini, and ChatGPT. Reads each site's own usage and never invents a number.",
+  "permissions": ["storage", "cookies", "alarms", "tabs", "declarativeNetRequest", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": [
+    "https://grok.com/*",
+    "https://*.grok.com/*",
+    "https://grok.x.com/*",
+    "https://x.com/*",
+    "https://gemini.google.com/*",
+    "https://chatgpt.com/*",
+    "https://management-api.x.ai/*"
+  ],
+  "action": {
+    "default_title": "AI usage 1.0.30",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "48": "icons/store-48.png",
+    "96": "icons/store-96.png",
+    "128": "icons/store-128.png"
+  },
+  "background": {
+    "scripts": [
+      "parse.js",
+      "period.js",
+      "icon.js",
+      "net.js",
+      "adapters/grok.js",
+      "adapters/gemini.js",
+      "adapters/chatgpt.js",
+      "pay.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://grok.com/*", "https://*.grok.com/*", "https://grok.x.com/*", "https://gemini.google.com/*", "https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://grok.com/*", "https://*.grok.com/*", "https://grok.x.com/*", "https://gemini.google.com/*", "https://chatgpt.com/*"],
+      "js": ["page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "master-ai-usage@ai-usage.addon",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["authenticationInfo"]
+      }
+    }
+  }
+}
