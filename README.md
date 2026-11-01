@@ -90,17 +90,14 @@ Usage percentages stay free. Token balances and the extra window rows are a one-
 
 - Firefox: install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/master-ai-usage/)
 - Firefox: `master-ai-usage-1.0.31-firefox.xpi`
-- Chrome: `master-ai-usage-1.0.31-chrome.zip`
 
-Windows and Linux use the same packages.
+Windows, macOS, and Linux use the same package.
 
 Firefox: Add-ons and themes → gear → Install Add-on From File → choose the xpi.
 
-Chrome: unzip, open `chrome://extensions`, turn on Developer mode, Load unpacked, choose the folder.
-
 ## Layout
 
-- `manifest.json` is the Firefox manifest. `manifest.chrome.json` is the Chrome one.
+- `manifest.json` is the Firefox manifest.
 - `background.js` refreshes each service. `adapters/` has one file per service.
 - `parse.js` reads each site's reply. `period.js` handles resets and the toolbar choice. `icon.js` draws the tile.
 - `popup.html`, `popup.js`, and `popup.css` are the popup. `pay.js` checks unlock codes on the device.

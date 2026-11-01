@@ -1,6 +1,6 @@
 # Master AI Usage
 
-One Firefox and Chrome extension. One toolbar icon. One popup.
+One Firefox extension. One toolbar icon. One popup.
 
 The tile follows the site in the active tab: grok.com, gemini.google.com, chatgpt.com, or claude.ai. Anywhere else it shows the highest live usage among signed-in services. Grok, Gemini, ChatGPT, and Claude ship. Each one is an adapter that returns `{ percent, resetsAt, products, note }`. If a site does not expose a number, the popup says "Signed in, usage not exposed". It never invents a percent.
 
@@ -9,13 +9,10 @@ Usage percents stay free. Token balances are a one-time $4.99 unlock, the same S
 ## Packages
 
 - Firefox: `master-ai-usage-1.0.31-firefox.xpi`
-- Chrome: `master-ai-usage-1.0.31-chrome.zip`
 
-Windows and Linux use the same packages.
+Windows, macOS, and Linux use the same package.
 
 Firefox: Add-ons and themes → gear → Install Add-on From File → choose the xpi.
-
-Chrome: unzip, open `chrome://extensions`, turn on Developer mode, Load unpacked, choose the folder.
 
 ## Reviewer notes
 
